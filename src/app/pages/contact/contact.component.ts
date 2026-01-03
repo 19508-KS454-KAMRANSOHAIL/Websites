@@ -1,0 +1,269 @@
+import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+
+@Component({
+  selector: "app-contact",
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Let's Work Together</h1>
+        <p>Schedule your free 30-minute strategy session</p>
+      </div>
+    </section>
+
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Before You Tell Me About Your Project</h2>
+            <p class="intro-text">
+              Let me show you what's possible. I believe in understanding your
+              business first, then recommending solutions that deliver real
+              value.
+            </p>
+
+            <div class="contact-benefits">
+              <div class="benefit-item" *ngFor="let benefit of benefits">
+                <div class="benefit-icon">{{ benefit.icon }}</div>
+                <div>
+                  <h3>{{ benefit.title }}</h3>
+                  <p>{{ benefit.description }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-methods">
+              <h3>Connect With Me</h3>
+              <ul>
+                <li>
+                  <strong>Email:</strong>
+                  <a href="mailto:contact&#64;yourportfolio.com"
+                    >contact&#64;yourportfolio.com</a
+                  >
+                </li>
+                <li>
+                  <strong>LinkedIn:</strong>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener"
+                    >LinkedIn Profile</a
+                  >
+                </li>
+                <li>
+                  <strong>GitHub:</strong>
+                  <a href="https://github.com" target="_blank" rel="noopener"
+                    >GitHub Repository</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper">
+            <form class="contact-form" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  [(ngModel)]="formData.name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="formData.email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  [(ngModel)]="formData.company"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="challenge">What's Your Main Challenge?</label>
+                <select
+                  id="challenge"
+                  name="challenge"
+                  [(ngModel)]="formData.challenge"
+                  required
+                >
+                  <option value="">Select a challenge...</option>
+                  <option value="legacy-system">
+                    Legacy System Modernization
+                  </option>
+                  <option value="cloud-migration">Cloud Migration</option>
+                  <option value="performance">Performance Optimization</option>
+                  <option value="scalability">Scalability Issues</option>
+                  <option value="custom-development">Custom Development</option>
+                  <option value="team-building">Building Dev Team</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Project Budget Range</label>
+                <select
+                  id="budget"
+                  name="budget"
+                  [(ngModel)]="formData.budget"
+                  required
+                >
+                  <option value="">Select range...</option>
+                  <option value="10-25k">$10K - $25K</option>
+                  <option value="25-50k">$25K - $50K</option>
+                  <option value="50-100k">$50K - $100K</option>
+                  <option value="100-250k">$100K - $250K</option>
+                  <option value="250k+">$250K+</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="timeline">Timeline</label>
+                <select
+                  id="timeline"
+                  name="timeline"
+                  [(ngModel)]="formData.timeline"
+                  required
+                >
+                  <option value="">Select timeline...</option>
+                  <option value="immediate">Immediate (Next 30 days)</option>
+                  <option value="3-months">Within 3 months</option>
+                  <option value="6-months">Within 6 months</option>
+                  <option value="exploring">Exploring options</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell Me More About Your Project</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  [(ngModel)]="formData.message"
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg">
+                Schedule Consultation
+              </button>
+              <p class="form-note">
+                We'll connect via Calendly to schedule your free 30-minute
+                strategy session.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section">
+      <div class="container">
+        <h2>Also Available On</h2>
+        <div class="social-links">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            >GitHub</a
+          >
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            >Twitter</a
+          >
+          <a
+            href="https://dev.to"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            >Dev.to</a
+          >
+        </div>
+      </div>
+    </section>
+  `,
+  styleUrls: ["./contact.component.scss"],
+})
+export class ContactComponent implements OnInit {
+  formData = {
+    name: "",
+    email: "",
+    company: "",
+    challenge: "",
+    budget: "",
+    timeline: "",
+    message: "",
+  };
+
+  benefits = [
+    {
+      icon: "🎯",
+      title: "Free Consultation",
+      description:
+        "No obligation 30-minute strategy session to understand your needs",
+    },
+    {
+      icon: "💡",
+      title: "Expert Insights",
+      description:
+        "Industry best practices and proven solutions tailored to your situation",
+    },
+    {
+      icon: "📊",
+      title: "Concrete Recommendations",
+      description: "Actionable steps and ROI projections for your project",
+    },
+  ];
+
+  ngOnInit() {
+    // Initialize any needed
+  }
+
+  onSubmit() {
+    console.log("Form submitted:", this.formData);
+    // Handle form submission - integrate with backend service
+    alert(
+      "Thank you! We'll be in touch shortly to schedule your consultation."
+    );
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.formData = {
+      name: "",
+      email: "",
+      company: "",
+      challenge: "",
+      budget: "",
+      timeline: "",
+      message: "",
+    };
+  }
+}

@@ -1,0 +1,277 @@
+.services-hero {
+  background: linear-gradient(135deg, #0f1729 0%, #1e293b 100%);
+  padding: 6rem 0;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.services-content {
+  padding: 6rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}
+
+.service-detailed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+
+  &.reverse {
+    grid-template-columns: 1fr 1fr;
+
+    .service-description {
+      order: 2;
+    }
+
+    .service-benefits {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    &.reverse .service-description,
+    &.reverse .service-benefits {
+      order: initial;
+    }
+  }
+}
+
+.service-description {
+  h2 {
+    font-size: 2rem;
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    color: #cbd5e1;
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #14b8a6;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.service-benefits {
+  h3 {
+    font-size: 1.25rem;
+    color: #f1f5f9;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.benefit {
+  padding: 1.5rem;
+  background: rgba(20, 184, 166, 0.08);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  border-radius: 0.75rem;
+
+  .benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin: 0;
+  }
+}
+
+.process-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #0f1729 0%, #1e293b 100%);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #f1f5f9;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  padding: 2rem;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    border-color: rgba(20, 184, 166, 0.5);
+    background: rgba(20, 184, 166, 0.08);
+    transform: translateY(-5px);
+  }
+
+  .step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+}
+
+.cta-services {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #0f1729 0%, #1e293b 100%);
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &.btn-primary {
+    background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+    color: white;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(20, 184, 166, 0.3);
+    }
+  }
+
+  &.btn-lg {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-content,
+  .process-section,
+  .cta-services {
+    padding: 4rem 0;
+
+    .container {
+      padding: 0 1rem;
+    }
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
