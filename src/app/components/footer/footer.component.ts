@@ -11,10 +11,10 @@ import { RouterLink } from "@angular/router";
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Portfolio</h3>
+            <h3>ApnaKam</h3>
             <p>
-              Transforming American businesses with cutting-edge software
-              solutions. 10+ years of proven expertise.
+              Transforming businesses with cutting-edge software solutions and
+              digital consulting services. Expert team ready to help.
             </p>
           </div>
           <div class="footer-section">
@@ -41,7 +41,10 @@ import { RouterLink } from "@angular/router";
             <h4>Connect</h4>
             <ul>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener"
+                <a
+                  href="https://www.linkedin.com/in/kamran619/"
+                  target="_blank"
+                  rel="noopener"
                   >LinkedIn</a
                 >
               </li>
@@ -60,7 +63,7 @@ import { RouterLink } from "@angular/router";
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Professional Portfolio. All rights reserved.</p>
+          <p>&copy; 2024 ApnaKam. All rights reserved.</p>
         </div>
       </div>
     </footer>

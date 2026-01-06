@@ -1,8 +1,11 @@
 # This file is used by the build system to adjust CSS and JS output to support the specified browsers below.
+
 # For additional information regarding the format and rule options, please see:
+
 # https://github.com/browserslist/browserslist#queries
 
 # For the vast majority of users, updating to the latest version of each browser is as easy as clicking the update button.
+
 # However, some users may not be able to update, and thus we must support some older versions.
 
 # Current usage statistics: https://caniuse.com/usage-table

@@ -12,28 +12,67 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
         <div class="container">
           <div class="nav-brand">
             <a routerLink="/" class="logo">
-              <span class="logo-text">Portfolio</span>
+              <span class="logo-icon">🚀</span>
+              <span class="logo-text">ApnaKam</span>
             </a>
           </div>
-          <ul class="nav-menu">
+          <button
+            class="hamburger"
+            (click)="toggleMenu()"
+            [class.active]="menuOpen"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-menu" [class.open]="menuOpen">
             <li>
               <a
                 routerLink="/"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
+                (click)="closeMenu()"
                 >Home</a
               >
             </li>
-            <li><a routerLink="/about" routerLinkActive="active">About</a></li>
             <li>
-              <a routerLink="/services" routerLinkActive="active">Services</a>
+              <a
+                routerLink="/about"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+                >About</a
+              >
             </li>
             <li>
-              <a routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+              <a
+                routerLink="/services"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+                >Services</a
+              >
             </li>
-            <li><a routerLink="/blog" routerLinkActive="active">Blog</a></li>
             <li>
-              <a routerLink="/contact" routerLinkActive="active" class="cta-btn"
+              <a
+                routerLink="/portfolio"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/blog"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/contact"
+                routerLinkActive="active"
+                class="cta-btn"
+                (click)="closeMenu()"
                 >Contact</a
               >
             </li>
@@ -44,4 +83,14 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   `,
   styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+}

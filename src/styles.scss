@@ -358,3 +358,162 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+
+// Mobile Responsive Utilities
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  ul,
+  ol {
+    margin-left: 1rem;
+    margin-bottom: 0.75rem;
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  button,
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; // Prevents zoom on iOS
+    padding: 0.75rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  button,
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 0.75rem;
+    width: 100%;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  // Form Responsive
+  .form-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border-radius: 0.375rem;
+    }
+  }
+
+  // Grid Responsive
+  [class*="grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  [class*="flex"] {
+    flex-direction: column !important;
+  }
+
+  // Text utilities
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+// Landscape mode adjustments
+@media (max-width: 768px) and (orientation: landscape) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  button,
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

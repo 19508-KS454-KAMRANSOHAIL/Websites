@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import emailjs from "@emailjs/browser";
 
 @Component({
   selector: "app-contact",
@@ -40,13 +41,16 @@ import { FormsModule } from "@angular/forms";
               <ul>
                 <li>
                   <strong>Email:</strong>
-                  <a href="mailto:contact&#64;yourportfolio.com"
-                    >contact&#64;yourportfolio.com</a
+                  <a href="mailto:mksawan619@gmail.com"
+                    >mksawan619&#64;gmail.com</a
                   >
                 </li>
                 <li>
                   <strong>LinkedIn:</strong>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener"
+                  <a
+                    href="https://www.linkedin.com/in/kamran619/"
+                    target="_blank"
+                    rel="noopener"
                     >LinkedIn Profile</a
                   >
                 </li>
@@ -54,6 +58,15 @@ import { FormsModule } from "@angular/forms";
                   <strong>GitHub:</strong>
                   <a href="https://github.com" target="_blank" rel="noopener"
                     >GitHub Repository</a
+                  >
+                </li>
+                <li>
+                  <strong>WhatsApp:</strong>
+                  <a
+                    href="https://wa.me/923447510711"
+                    target="_blank"
+                    rel="noopener"
+                    >+923447510711</a
                   >
                 </li>
               </ul>
@@ -178,7 +191,7 @@ import { FormsModule } from "@angular/forms";
         <h2>Also Available On</h2>
         <div class="social-links">
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/kamran619/"
             target="_blank"
             rel="noopener"
             class="social-link"
@@ -243,16 +256,38 @@ export class ContactComponent implements OnInit {
   ];
 
   ngOnInit() {
-    // Initialize any needed
+    // Initialize EmailJS
+    emailjs.init("FiOYICOvKQmtB0P1N");
   }
 
   onSubmit() {
-    console.log("Form submitted:", this.formData);
-    // Handle form submission - integrate with backend service
-    alert(
-      "Thank you! We'll be in touch shortly to schedule your consultation."
+    const templateParams = {
+      from_name: this.formData.name,
+      from_email: this.formData.email,
+      email: "mksawan619@gmail.com",
+      company: this.formData.company,
+      challenge: this.formData.challenge,
+      budget: this.formData.budget,
+      timeline: this.formData.timeline,
+      message: this.formData.message,
+      to_email: "mksawan619@gmail.com",
+    };
+
+    emailjs.send("service_websites", "template_yh2wuhe", templateParams).then(
+      (response: any) => {
+        console.log("Email sent successfully:", response);
+        alert(
+          "Thank you! Your message has been sent. We'll be in touch shortly to schedule your consultation."
+        );
+        this.resetForm();
+      },
+      (error: any) => {
+        console.error("Failed to send email:", error);
+        alert(
+          "There was an issue sending your message. Please try again or contact us directly."
+        );
+      }
     );
-    this.resetForm();
   }
 
   resetForm() {
