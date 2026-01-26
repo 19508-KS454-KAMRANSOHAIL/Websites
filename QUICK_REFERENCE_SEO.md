@@ -3,11 +3,14 @@
 ## 🚀 QUICK START (Do These First)
 
 ### 1. Add Google Verification Code (5 minutes)
+
 ```html
 <!-- In /src/index.html around line 85 -->
 <meta name="google-site-verification" content="YOUR_CODE_HERE" />
 ```
+
 Steps:
+
 1. Visit: https://search.google.com/search-console
 2. Click "URL prefix" and enter: `https://websiteservice619.netlify.app`
 3. Choose "HTML tag" verification method
@@ -17,11 +20,14 @@ Steps:
 7. Submit sitemap.xml in Search Console
 
 ### 2. Add Bing Verification Code (5 minutes)
+
 ```html
 <!-- In /src/index.html around line 88 -->
 <meta name="msvalidate.01" content="YOUR_CODE_HERE" />
 ```
+
 Steps:
+
 1. Visit: https://www.bing.com/webmasters
 2. Sign in with Microsoft account
 3. Add site
@@ -31,18 +37,26 @@ Steps:
 7. Click Verify
 
 ### 3. Setup Google Analytics (10 minutes)
+
 ```html
 <!-- Add to /src/index.html after closing </title> tag -->
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
 </script>
 ```
+
 Steps:
+
 1. Visit: https://analytics.google.com
 2. Click "Start measuring"
 3. Enter your website URL
@@ -56,6 +70,7 @@ Steps:
 ## 📱 SOCIAL MEDIA ACCOUNT SETUP
 
 ### LinkedIn
+
 ```
 Profile Updates Needed:
 - Profile: https://www.linkedin.com/in/kamran619/
@@ -67,6 +82,7 @@ Profile Updates Needed:
 ```
 
 ### Twitter/X
+
 ```
 Profile Setup:
 - Handle: @kamransawan
@@ -78,6 +94,7 @@ Profile Setup:
 ```
 
 ### Facebook Business Page
+
 ```
 Page Creation Steps:
 1. Go to: https://www.facebook.com/pages/create
@@ -91,6 +108,7 @@ Page Creation Steps:
 ```
 
 ### Instagram Business Account
+
 ```
 Account Setup:
 1. Convert to Business Account
@@ -107,11 +125,13 @@ Account Setup:
 ## 🔍 SEO MONITORING TOOLS
 
 ### Daily Check (2 minutes)
+
 - Google Search Console Dashboard
 - Search Console → Performance (see top queries)
 - Traffic to your site
 
 ### Weekly Check (10 minutes)
+
 ```
 Checklist:
 ☐ Google Search Console - any crawl errors?
@@ -122,6 +142,7 @@ Checklist:
 ```
 
 ### Monthly Deep Dive (30 minutes)
+
 ```
 Checklist:
 ☐ Rankings for target keywords (SEMrush/Ahrefs)
@@ -138,11 +159,13 @@ Checklist:
 ## 📊 KEY KEYWORDS TO TRACK
 
 ### Branded (Easy, High Intent)
+
 - "Kamran Sawan"
 - "Kamran Sawan software engineer"
 - "websiteservice619"
 
 ### Service-Based (Medium, High Intent)
+
 - "software engineer USA"
 - "digital transformation consultant"
 - "custom software development"
@@ -150,6 +173,7 @@ Checklist:
 - "legacy system modernization"
 
 ### Broad (Hard, Medium Intent)
+
 - "software engineer"
 - "digital transformation"
 - "enterprise software development"
@@ -157,11 +181,13 @@ Checklist:
 - "custom development"
 
 ### Local (Easy, Very High Intent)
+
 - "software engineer [city]"
 - "digital transformation [state]"
 - Example: "software engineer San Francisco"
 
 ### Long-Tail (Easy, High Intent)
+
 - "how to modernize legacy systems"
 - "cloud migration best practices"
 - "custom software for small business"
@@ -172,12 +198,14 @@ Checklist:
 ## 💰 BUDGET RECOMMENDATIONS FOR US MARKET
 
 ### Organic (Free)
+
 - Time: 30-40 hours/week
 - Duration: 6-12 months for results
 - Result: Sustainable, long-term traffic
 - Tools: Free (Google, Bing, Analytics)
 
 ### Hybrid (Recommended)
+
 - **Google Ads**: $500-1000/month
   - Keywords: "software engineer", "custom development"
   - Target: US locations
@@ -199,6 +227,7 @@ Checklist:
 **Total**: $1200-2300/month for aggressive growth
 
 ### Premium (Full-Scale)
+
 - Add: Facebook/Instagram ads ($500/month)
 - Add: SEMrush Pro ($120/month)
 - Add: Ahrefs Professional ($200/month)
@@ -209,12 +238,15 @@ Checklist:
 ## 🎯 CONVERSION OPTIMIZATION
 
 ### Contact Form Best Practices
+
 ✅ Your form already has:
+
 - Required field validation
 - Clear CTAs
 - Clean design
 
 ### Additional Improvements
+
 ```
 Recommended:
 1. Add success page after submission
@@ -226,6 +258,7 @@ Recommended:
 ```
 
 ### Call-to-Action Placements
+
 ```
 Recommended locations:
 ☐ Hero section (done)
@@ -242,6 +275,7 @@ Recommended locations:
 ## 📈 CONTENT CALENDAR TEMPLATE
 
 ### Weekly Post Ideas
+
 ```
 Monday: Case study or project highlight
 - Image + 150 words about project impact
@@ -258,6 +292,7 @@ Friday: Engagement post
 ```
 
 ### Monthly Topics (2026)
+
 ```
 January: Digital transformation trends
 February: Cost savings through cloud
@@ -278,24 +313,29 @@ December: 2027 predictions
 ## 🔗 LINK BUILDING QUICK TIPS
 
 ### Guest Posts (High Value)
+
 1. Dev.to: https://dev.to/new
 2. Medium: https://medium.com/
 3. Hashnode: https://hashnode.com/
 4. CSS-Tricks: https://css-tricks.com/guest-posting/
 
 Topics to pitch:
+
 - "Modernizing Legacy Applications: A Case Study"
 - "Cloud Migration: 5 Lessons Learned"
 - "Building Scalable Enterprise Applications"
 - "The True Cost of Technical Debt"
 
 ### Resource Pages
+
 Search: "best [topic] resources" + "digital transformation"
+
 - Find pages linking to competitors
 - Reach out: "I have a better resource for this topic"
 - Example: "best cloud migration tools" pages
 
 ### Directory Submissions
+
 1. Clutch: https://clutch.co/ (very valuable)
 2. GoodFirms: https://www.goodfirms.co/
 3. TopTal: https://www.toptal.com/ (if accepted)
@@ -306,16 +346,19 @@ Search: "best [topic] resources" + "digital transformation"
 ## ⚡ PERFORMANCE OPTIMIZATION
 
 ### Speed Targets
+
 - Homepage load: < 2 seconds
 - Time to First Contentful Paint: < 1.5 seconds
 - Largest Contentful Paint: < 2.5 seconds
 
 ### How to Check
+
 - Google PageSpeed Insights: https://pagespeed.web.dev/
 - GTmetrix: https://gtmetrix.com/
 - WebPageTest: https://www.webpagetest.org/
 
 ### Quick Wins
+
 ```
 Already done (Netlify handles):
 ✅ Image compression
@@ -335,6 +378,7 @@ Consider:
 ## 📞 OUTREACH TEMPLATES
 
 ### To Blog Owners (Guest Post)
+
 ```
 Subject: [Contribution] [Topic] for [Blog Name]
 
@@ -357,6 +401,7 @@ Looking forward to hearing from you!
 ```
 
 ### To Industry Directory (Listing)
+
 ```
 Subject: Add [Your Name] to [Directory]
 
@@ -381,24 +426,28 @@ Thanks!
 ## 🎓 LEARNING PATH FOR 2026
 
 **Month 1**: Setup & fundamentals
+
 - Complete all verification codes
 - Submit sitemaps
 - Setup analytics
 - Create social accounts
 
 **Month 2-3**: Content & optimization
+
 - Start blog (weekly posts)
 - Guest posts (2-3 posts)
 - Optimize existing pages
 - Build backlinks
 
 **Month 4-6**: Growth & paid ads
+
 - Launch Google Ads ($500/month)
 - Launch LinkedIn Ads ($500/month)
 - Monthly case studies
 - Analyze results
 
 **Month 7-12**: Scale & authority
+
 - Increase content production
 - Build more backlinks
 - Adjust ad strategy based on data
@@ -409,24 +458,28 @@ Thanks!
 ## 🆘 TROUBLESHOOTING
 
 ### "Site not showing in search results"
+
 - Wait 2-4 weeks for indexing
 - Check Google Search Console for errors
 - Submit sitemap if not auto-discovered
 - Check robots.txt not blocking
 
 ### "Low organic traffic"
+
 - Need more content (blog posts)
 - Need more backlinks (guest posts)
 - Keywords might be too competitive
 - Try long-tail keywords first
 
 ### "High bounce rate"
+
 - Improve page load speed
 - Make CTAs more compelling
 - Better meta descriptions
 - Mobile optimization
 
 ### "No contact form submissions"
+
 - Add retargeting ads
 - Improve page content
 - Add trust signals (testimonials, badges)
@@ -437,6 +490,7 @@ Thanks!
 ## 📚 ADDITIONAL RESOURCES
 
 ### Free Tools List
+
 ```
 SEO Tools:
 - Google Search Console: https://search.google.com/search-console
@@ -456,6 +510,7 @@ Content Tools:
 ```
 
 ### Paid Tools (Optional)
+
 ```
 Best for small budgets ($50-100/month):
 - Ubersuggest: https://ubersuggest.com/
