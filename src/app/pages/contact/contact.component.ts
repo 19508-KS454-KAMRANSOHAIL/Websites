@@ -74,7 +74,11 @@ import emailjs from "@emailjs/browser";
           </div>
 
           <div class="contact-form-wrapper">
-            <form class="contact-form" (ngSubmit)="onSubmit()">
+            <form
+              class="contact-form"
+              (ngSubmit)="onSubmit()"
+              #contactForm="ngForm"
+            >
               <div class="form-group">
                 <label for="name">Your Name</label>
                 <input
@@ -83,6 +87,7 @@ import emailjs from "@emailjs/browser";
                   name="name"
                   [(ngModel)]="formData.name"
                   required
+                  #nameField="ngModel"
                 />
               </div>
 
@@ -173,7 +178,11 @@ import emailjs from "@emailjs/browser";
                 ></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-lg">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                [disabled]="!isFormValid()"
+              >
                 Schedule Consultation
               </button>
               <p class="form-note">
@@ -261,6 +270,11 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.isFormValid()) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
     const templateParams = {
       from_name: this.formData.name,
       from_email: this.formData.email,
@@ -277,16 +291,27 @@ export class ContactComponent implements OnInit {
       (response: any) => {
         console.log("Email sent successfully:", response);
         alert(
-          "Thank you! Your message has been sent. We'll be in touch shortly to schedule your consultation."
+          "Thank you! Your message has been sent. We'll be in touch shortly to schedule your consultation.",
         );
         this.resetForm();
       },
       (error: any) => {
         console.error("Failed to send email:", error);
         alert(
-          "There was an issue sending your message. Please try again or contact us directly."
+          "There was an issue sending your message. Please try again or contact us directly.",
         );
-      }
+      },
+    );
+  }
+
+  isFormValid(): boolean {
+    return (
+      this.formData.name.trim() !== "" &&
+      this.formData.email.trim() !== "" &&
+      this.formData.company.trim() !== "" &&
+      this.formData.challenge.trim() !== "" &&
+      this.formData.budget.trim() !== "" &&
+      this.formData.timeline.trim() !== ""
     );
   }
 

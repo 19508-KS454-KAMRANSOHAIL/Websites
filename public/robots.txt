@@ -1,0 +1,28 @@
+# Robots.txt for Search Engine Optimization
+# Allow all search engines to crawl the website
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# All other robots
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Disallow private/admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*.pdf$
+
+# Sitemap location
+Sitemap: https://websiteservice619.netlify.app/sitemap.xml
+Sitemap: https://websiteservice619.netlify.app/sitemap-pages.xml
+Sitemap: https://websiteservice619.netlify.app/sitemap-blog.xml

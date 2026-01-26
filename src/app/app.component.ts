@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { SeoService } from "./services/seo.service";
 
 @Component({
   selector: "app-root",
@@ -20,7 +21,9 @@ import { FooterComponent } from "./components/footer/footer.component";
 export class AppComponent implements OnInit {
   title = "Professional Portfolio";
 
+  constructor(private seoService: SeoService) {}
+
   ngOnInit() {
-    // Initialize any global settings
+    // SEO service is initialized automatically
   }
 }

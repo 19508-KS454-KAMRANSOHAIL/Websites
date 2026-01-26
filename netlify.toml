@@ -1,0 +1,106 @@
+# Netlify Configuration for SEO Optimization
+
+[build]
+  command = "npm run build"
+  publish = "dist/websites/browser"
+
+# Redirects for SEO and UX
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# HTTP to HTTPS redirect
+[[redirects]]
+  from = "http://websiteservice619.netlify.app/*"
+  to = "https://websiteservice619.netlify.app/:splat"
+  status = 301
+
+# WWW to non-WWW redirect
+[[redirects]]
+  from = "https://www.websiteservice619.netlify.app/*"
+  to = "https://websiteservice619.netlify.app/:splat"
+  status = 301
+
+# Redirect old portfolio URLs (if any)
+[[redirects]]
+  from = "/projects"
+  to = "/portfolio"
+  status = 301
+
+[[redirects]]
+  from = "/work"
+  to = "/portfolio"
+  status = 301
+
+# Security Headers for SEO and Protection
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security Headers
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Performance & Caching
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    
+    # SEO Headers
+    Content-Language = "en-US"
+    
+    # CORS for API calls
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    
+    # DNS Prefetch
+    Link = "</assets/fonts/>; rel=preconnect, <https://cdn.jsdelivr.net>; rel=preconnect"
+
+# Cache static assets longer
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache index.html minimally for updates
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# JSON and XML sitemap cache
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Content-Type = "application/json"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+    Cache-Control = "public, max-age=86400"
+
+# Text file caching
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain"
+    Cache-Control = "public, max-age=604800"
+
+# Context-specific settings for production
+[context.production]
+  environment = { NODE_ENV = "production", HUGO_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "development" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
+
+# Form processing (if using Netlify Forms)
+[[headers]]
+  for = "/contact"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
