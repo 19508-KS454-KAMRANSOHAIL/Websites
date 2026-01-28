@@ -5,10 +5,12 @@ import {
   PLATFORM_ID,
   Inject,
 } from "@angular/core";
-import { CommonModule, isPlatformBrowser } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.component";
+import { DOCUMENT } from "@angular/common";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-header",
@@ -105,12 +107,6 @@ export class HeaderComponent implements OnInit {
       exact: true,
     },
     {
-      path: "/about",
-      label: "About Us",
-      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
-      exact: false,
-    },
-    {
       path: "/services",
       label: "Services",
       icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
@@ -134,15 +130,52 @@ export class HeaderComponent implements OnInit {
       icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>',
       exact: false,
     },
+    {
+      path: "/about",
+      label: "About Us",
+      icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>',
+      exact: false,
+    },
   ];
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(DOCUMENT) private document: Document
+  ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
     if (this.isBrowser) {
       this.checkScroll();
+      // Hide theme dropdown if on websiteservice619 domain
+      if (this.document.location.hostname.includes("websiteservice619")) {
+        setTimeout(() => {
+          const themeSwitcher = this.document.querySelector("app-theme-switcher");
+          if (themeSwitcher) {
+            (themeSwitcher as HTMLElement).style.display = "none";
+          }
+        }, 0);
+      }
+
+      // Move About Us to last in navItems
+      const aboutIndex = this.navItems.findIndex(
+        (item) => item.path === "/about"
+      );
+      if (aboutIndex > -1) {
+        const aboutItem = this.navItems.splice(aboutIndex, 1)[0];
+        this.navItems.push(aboutItem);
+      }
+
+      // Set default theme to Clean White
+      if (
+        this.isBrowser &&
+        localStorage.getItem("selectedTheme") !== "light-clean"
+      ) {
+        localStorage.setItem("selectedTheme", "light-clean");
+        // Optionally reload to apply theme immediately
+        setTimeout(() => window.location.reload(), 100);
+      }
     }
   }
 

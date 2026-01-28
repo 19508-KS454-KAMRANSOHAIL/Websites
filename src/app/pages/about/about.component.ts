@@ -1,4 +1,4 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
+import { Component, OnInit, PLATFORM_ID, Inject, AfterViewInit } from "@angular/core";
 import { CommonModule, isPlatformBrowser } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { gsap } from "gsap";
@@ -251,8 +251,9 @@ gsap.registerPlugin(ScrollTrigger);
   `,
   styleUrls: ["./about.component.scss"],
 })
-export class AboutComponent implements OnInit {
-  private isBrowser: boolean;
+export class AboutComponent implements OnInit, AfterViewInit {
+  private isBrowser: boolean = false;
+  platformId: Object;
 
   milestones = [
     { year: "2016", title: "First Enterprise Project" },
@@ -387,12 +388,20 @@ export class AboutComponent implements OnInit {
   ];
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
+    this.platformId = platformId;
   }
 
   ngOnInit() {
     if (this.isBrowser) {
       this.animateOnScroll();
+    }
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        ScrollTrigger.refresh(true);
+      }, 200);
     }
   }
 
