@@ -140,7 +140,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -151,7 +151,8 @@ export class HeaderComponent implements OnInit {
       // Hide theme dropdown if on websiteservice619 domain
       if (this.document.location.hostname.includes("websiteservice619")) {
         setTimeout(() => {
-          const themeSwitcher = this.document.querySelector("app-theme-switcher");
+          const themeSwitcher =
+            this.document.querySelector("app-theme-switcher");
           if (themeSwitcher) {
             (themeSwitcher as HTMLElement).style.display = "none";
           }
@@ -160,7 +161,7 @@ export class HeaderComponent implements OnInit {
 
       // Move About Us to last in navItems
       const aboutIndex = this.navItems.findIndex(
-        (item) => item.path === "/about"
+        (item) => item.path === "/about",
       );
       if (aboutIndex > -1) {
         const aboutItem = this.navItems.splice(aboutIndex, 1)[0];

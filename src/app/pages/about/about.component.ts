@@ -1,4 +1,10 @@
-import { Component, OnInit, PLATFORM_ID, Inject, AfterViewInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  PLATFORM_ID,
+  Inject,
+  AfterViewInit,
+} from "@angular/core";
 import { CommonModule, isPlatformBrowser } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { gsap } from "gsap";
