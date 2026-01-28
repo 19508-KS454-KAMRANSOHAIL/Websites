@@ -442,9 +442,43 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         { icon: "💡", text: "Innovation strategies" },
       ],
     },
+    {
+      title: "Cloud & DevOps",
+      shortDescription:
+        "Automate deployments, scale infrastructure, and ensure reliability with modern cloud and DevOps practices.",
+      icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+      </svg>`,
+      features: [
+        "CI/CD pipelines",
+        "Containerization (Docker/Kubernetes)",
+        "Cloud scaling (AWS/Azure)",
+        "Monitoring & logging",
+        "Disaster recovery",
+        "Infrastructure as Code",
+      ],
+      benefitTags: ["99.99% Uptime", "Automated", "Scalable"],
+      benefits: [
+        { icon: "☁️", text: "Cloud reliability" },
+        { icon: "🔧", text: "Automated deployments" },
+        { icon: "📈", text: "Effortless scaling" },
+        { icon: "🔒", text: "Secure infrastructure" },
+      ],
+    },
   ];
 
   processSteps = [
+    {
+      number: "00",
+      title: "Kickoff & Logo",
+      description:
+        "Project kickoff with branding and logo setup for a unified identity.",
+      icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor">Logo</text>
+      </svg>`,
+      deliverables: ["Logo Files", "Brand Guidelines"],
+    },
     {
       number: "01",
       title: "Discovery & Assessment",
