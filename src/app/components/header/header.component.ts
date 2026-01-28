@@ -182,7 +182,10 @@ export class HeaderComponent implements OnInit {
       this.router.events.subscribe((event) => {
         // Scroll to top on route change (force for live)
         if (event.constructor.name === "NavigationEnd") {
-          setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }), 0);
+          setTimeout(
+            () => window.scrollTo({ top: 0, left: 0, behavior: "auto" }),
+            0,
+          );
         }
       });
     }
