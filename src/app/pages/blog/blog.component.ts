@@ -1,4 +1,10 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  PLATFORM_ID,
+  Inject,
+  AfterViewInit,
+} from "@angular/core";
 import { CommonModule, isPlatformBrowser } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { FormsModule } from "@angular/forms";
@@ -256,10 +262,11 @@ gsap.registerPlugin(ScrollTrigger);
   `,
   styleUrls: ["./blog.component.scss"],
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, AfterViewInit {
   private isBrowser: boolean;
   newsletterEmail = "";
   activeCategory = "All";
+  platformId: Object;
 
   featuredPost = {
     title: "The Complete Guide to Digital Transformation in 2024",
@@ -379,12 +386,21 @@ export class BlogComponent implements OnInit {
   filteredPosts = [...this.blogPosts];
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.platformId = platformId;
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
     if (this.isBrowser) {
       this.animateOnScroll();
+    }
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        ScrollTrigger.refresh(true);
+      }, 200);
     }
   }
 

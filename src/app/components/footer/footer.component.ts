@@ -237,7 +237,7 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent {
-  currentYear = new Date().getFullYear();
+  currentYear = 2024;
   newsletterEmail = "";
 
   subscribeNewsletter() {

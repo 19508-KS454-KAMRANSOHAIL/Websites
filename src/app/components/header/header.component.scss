@@ -6,6 +6,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  width: 100%;
   padding: 1rem 0;
   background: var(--header-bg, rgba(250, 245, 255, 0.95));
   backdrop-filter: blur(20px);
@@ -394,4 +395,8 @@
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
   }
+}
+
+body {
+  padding-top: 80px; /* Adjust if header height changes */
 }

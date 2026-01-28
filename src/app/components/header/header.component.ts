@@ -6,7 +6,7 @@ import {
   Inject,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink, RouterLinkActive, Router } from "@angular/router";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { ThemeSwitcherComponent } from "../theme-switcher/theme-switcher.component";
 import { DOCUMENT } from "@angular/common";
@@ -141,6 +141,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     @Inject(DOCUMENT) private document: Document,
+    private router: Router,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -177,6 +178,13 @@ export class HeaderComponent implements OnInit {
         // Optionally reload to apply theme immediately
         setTimeout(() => window.location.reload(), 100);
       }
+
+      this.router.events.subscribe((event) => {
+        // Scroll to top on route change
+        if (event.constructor.name === "NavigationEnd") {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }
+      });
     }
   }
 
