@@ -146,9 +146,7 @@ import emailjs from "@emailjs/browser";
                   </div>
                   <div class="contact-details">
                     <span class="contact-label">LinkedIn</span>
-                    <span class="contact-value"
-                      >linkedin.com/in/kamran619</span
-                    >
+                    <span class="contact-value">linkedin.com/in/kamran619</span>
                   </div>
                   <svg
                     class="arrow-icon"
