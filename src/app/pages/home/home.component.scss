@@ -3,6 +3,9 @@
 // Hero Section
 .hero {
   min-height: 100vh;
+  height: 100vh;
+  box-sizing: border-box;
+  scroll-margin-top: 80px; /* header height */
   display: flex;
   align-items: center;
   position: relative;
