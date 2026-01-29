@@ -80,6 +80,7 @@ import { FormsModule } from "@angular/forms";
                     />
                   </svg>
                 </a>
+                <!-- GitHub link commented out for now
                 <a
                   href="https://github.com/MKamran619"
                   target="_blank"
@@ -98,6 +99,7 @@ import { FormsModule } from "@angular/forms";
                     />
                   </svg>
                 </a>
+                -->
                 <a
                   href="https://twitter.com/kamransawan"
                   target="_blank"
@@ -223,7 +225,7 @@ import { FormsModule } from "@angular/forms";
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-bottom-content">
-            <p>&copy; {{ currentYear }} ApnaKam. All rights reserved.</p>
+            <p>&copy; 2014 - {{ currentYear }} ApnaKam. All rights reserved.</p>
             <div class="footer-links">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of Service</a>
@@ -237,7 +239,7 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent {
-  currentYear = 2024;
+  currentYear = new Date().getFullYear();
   newsletterEmail = "";
 
   subscribeNewsletter() {

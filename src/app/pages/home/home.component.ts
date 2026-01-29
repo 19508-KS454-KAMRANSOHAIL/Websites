@@ -214,7 +214,7 @@ gsap.registerPlugin(ScrollTrigger);
         <div class="testimonials-grid">
           <div
             class="testimonial-card"
-            *ngFor="let testimonial of testimonials"
+            *ngFor="let testimonial of visibleTestimonials"
           >
             <div class="quote-icon">"</div>
             <p class="testimonial-text">{{ testimonial.text }}</p>
@@ -229,6 +229,34 @@ gsap.registerPlugin(ScrollTrigger);
               <span *ngFor="let star of [1, 2, 3, 4, 5]">⭐</span>
             </div>
           </div>
+        </div>
+
+        <div
+          class="load-more-container"
+          *ngIf="
+            !showAllTestimonials &&
+            testimonials.length > visibleTestimonialsCount
+          "
+        >
+          <button
+            class="btn btn-outline load-more-btn"
+            (click)="loadMoreTestimonials()"
+          >
+            <span>More Success Stories</span>
+            <span class="remaining-count"
+              >({{ testimonials.length - visibleTestimonialsCount }} more)</span
+            >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -386,7 +414,52 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       role: "VP Engineering, FinanceHub",
       initials: "ED",
     },
+    {
+      text: "Their API architecture completely revolutionized how we handle data. Response times dropped by 80% and our customers love the improved experience.",
+      name: "James Wilson",
+      role: "Director of Technology, DataFlow Systems",
+      initials: "JW",
+    },
+    {
+      text: "ApnaKam's team understood our complex healthcare requirements and delivered a HIPAA-compliant solution that exceeded all expectations.",
+      name: "Dr. Patricia Martinez",
+      role: "CIO, MedTech Solutions",
+      initials: "PM",
+    },
+    {
+      text: "From concept to deployment in just 4 months. Their agile approach and constant communication made the entire process smooth.",
+      name: "Robert Taylor",
+      role: "Founder, StartupLabs",
+      initials: "RT",
+    },
+    {
+      text: "The mobile app they developed has a 4.9 star rating on both app stores. Their attention to UI/UX detail is remarkable.",
+      name: "Amanda Lee",
+      role: "Product Manager, AppVentures",
+      initials: "AL",
+    },
+    {
+      text: "ApnaKam helped us scale from 10K to 1M users without any downtime. Their infrastructure planning was exceptional.",
+      name: "David Kumar",
+      role: "CTO, GrowthTech",
+      initials: "DK",
+    },
+    {
+      text: "Their security audit identified vulnerabilities we missed for years. The remediation roadmap they provided was invaluable.",
+      name: "Jennifer Brown",
+      role: "CISO, SecureBank",
+      initials: "JB",
+    },
   ];
+
+  showAllTestimonials = false;
+  visibleTestimonialsCount = 3;
+
+  get visibleTestimonials() {
+    return this.showAllTestimonials
+      ? this.testimonials
+      : this.testimonials.slice(0, this.visibleTestimonialsCount);
+  }
 
   trustStats = [
     { icon: "📊", number: "50+", label: "Projects Completed" },
@@ -540,5 +613,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
         delay: index * 0.1,
       });
     });
+  }
+
+  loadMoreTestimonials() {
+    this.showAllTestimonials = true;
+    // Refresh ScrollTrigger after showing more testimonials
+    if (this.isBrowser) {
+      setTimeout(() => {
+        ScrollTrigger.refresh(true);
+      }, 100);
+    }
   }
 }
